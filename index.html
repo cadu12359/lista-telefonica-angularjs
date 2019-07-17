@@ -45,7 +45,11 @@
     			}
 
     			$scope.apagarContatos = function(contatos){
-    				console.log(contatos);
+    				//substituindo o array original pelo resultado da filtragem dos não selecionados
+    				$scope.contatos = contatos.filter(function (contato){
+    					if(!contato.selecionado) return contato;
+    				});
+    				//console.log(contatosSlecionados); 
     			}
 
     		});
