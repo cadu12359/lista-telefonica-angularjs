@@ -67,7 +67,7 @@
 		<!-- <h4 ng-bind="app"></h4> -->
 		<h3>{{app}}</h3>
 		
-		<table class="table">
+		<table class="table" ng-show="contatos.length > 0">
 			<tr>
 				<th>Nome</th>
 				<th>Telefone</th>
@@ -78,7 +78,6 @@
 				<td>{{contato.nome}}</td>
 				<td>{{contato.telefone}}</td>
 				<td>{{contato.operadora.nome}}</td>
-				{{contato}}
 			</tr>
 		</table>
 		</hr>
@@ -91,9 +90,10 @@
 
 		<button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="!contato.nome || !contato.telefone">Adicionar Contato</button>
 
-		<button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-disabled="!isContatoSelecionado(contatos)">Apagar Contato</button>
+		<button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-if="isContatoSelecionado(contatos)">Apagar Contato</button>
 	</div>
-
+	
+	<div ng-include="'footer.html'"></div>
 
 </body>
 </html>
